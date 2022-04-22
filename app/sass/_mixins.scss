@@ -1,0 +1,27 @@
+.hide-for-destop{
+    @media (min-width: 60em) {
+        display: none;
+    }
+}
+.hide-for-mobile{
+    @media (max-width: 59.99em) {
+        display: none;
+    }
+}
+
+
+
+$breakpoints-up: ("medium": "40em", "large": "64em", "xlarge": "87em");
+$breakpoints-down: ("small": "39.9375em", "medium": "63.9375em", "large": "86.9375em");
+
+@mixin  breakpoints-up($size){
+    @media (min-width: map-get($breakpoints-up, $size)) {
+        @content;
+    }
+}
+
+@mixin  breakpoints-down($size){
+    @media (min-width: map-get($breakpoints-down, $size)) {
+        @content;
+    }
+}
